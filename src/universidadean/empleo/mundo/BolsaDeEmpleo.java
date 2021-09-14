@@ -114,13 +114,16 @@ public class BolsaDeEmpleo {
      * Busca un Aspirante según su nombre y retorna la posición en la que se encuentra. <br>
      *
      * @param nombre El nombre del aspirante buscado - nombre!=null
-     * @return Se retornó la posición donde se encuentra un aspirante con el nombre dado. Si no se encuentra ningún aspirante con ese nombre se retornó -1.
+     * @return Se retornó la posición donde se encuentra un aspirante con el nombre dado.
+     * Si no se encuentra ningún aspirante con ese nombre se retornó -1.
      */
     public int buscarAspirante(String nombre) {
         int posicion = -1;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if (aspirantes.get(i).darNombre().equals(nombre)){
+                posicion = i;
+            }
+        }
         return posicion;
     }
 
@@ -129,15 +132,24 @@ public class BolsaDeEmpleo {
      * <b>pre: </b> La lista de aspirantes se encuentra ordenada por nombre. <br>
      *
      * @param nombre es el nombre del aspirante que se va a buscar - nombre!=null
-     * @return Se retornó la posición del aspirante con el nombre dado. Si el aspirante no existe se retornó -1.
+     * @return Se retornó la posición del aspirante con el nombre dado.
+     * Si el aspirante no existe se retornó -1.
      */
     public int buscarBinarioPorNombre(String nombre) {
         int posicion = -1;
         int ini = 0;
         int fin = aspirantes.size() - 1;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        int mit = 0;
+        while (ini <= fin) {
+            mit = (ini + fin) / 2;
+            if (aspirantes.get(mit).darNombre().compareTo(nombre) < 0) {
+                ini = mit + 1;
+                posicion = mit;
+            } else if (aspirantes.get(mit).darNombre().compareTo(nombre) > 0) {
+                fin = mit - 1;
+                posicion = mit;
+            }
+        }
         return posicion;
     }
 
@@ -145,13 +157,18 @@ public class BolsaDeEmpleo {
     /**
      * Busca el aspirante que tenga la menor edad en la bolsa.
      *
-     * @return Se retornó la posición donde se encuentra el aspirante más joven. Si no hay aspirantes en la bolsa se retornó -1
+     * @return Se retornó la posición donde se encuentra el aspirante más joven.
+     * Si no hay aspirantes en la bolsa se retornó -1
      */
     public int buscarAspiranteMasJoven() {
         int posicion = -1;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        int edad = 100;
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if (aspirantes.get(i).darEdad()<=edad){
+                edad = aspirantes.get(i).darEdad();
+                posicion = i;
+            }
+        }
         return posicion;
     }
 
@@ -162,9 +179,13 @@ public class BolsaDeEmpleo {
      */
     public int buscarAspiranteMayorEdad() {
         int posicion = -1;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        int edad = 0;
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if (aspirantes.get(i).darEdad()>=edad){
+                edad = aspirantes.get(i).darEdad();
+                posicion = i;
+            }
+        }
         return posicion;
     }
 
