@@ -215,9 +215,12 @@ public class BolsaDeEmpleo {
      */
     public boolean contratarAspirante(String nombre) {
         boolean contratado = false;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if(aspirantes.get(i).darNombre().equals(nombre)){
+                aspirantes.remove(i);
+                contratado = true;
+            }
+        }
         return contratado;
     }
 
