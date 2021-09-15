@@ -123,6 +123,20 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por años de experiencia
      */
     public void ordenarPorAniosDeExperiencia() {
+        for (int i = 0; i < aspirantes.size(); i++) {
+            int key = aspirantes.get(i).darAniosExperiencia();
+            int j = i - 1;
+
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+            while (j >= 0 && aspirantes.get(j).darAniosExperiencia() > key) {
+                aspirantes.set(j+1,aspirantes.get(j));
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+
+        }
         // TODO: Realizar el ejercicio correspondiente Sebastián
     }
 
