@@ -91,6 +91,22 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por edad
      */
     public void ordenarPorEdad() {
+
+
+        for (int i = 0; i < aspirantes.size() -1; ++i ){
+            int menor = Integer.MAX_VALUE;
+            int posMenor = -1;
+            for (int j = i+1; j < aspirantes.size(); ++j){
+                if (aspirantes.get(j).darEdad() < menor){
+                    menor = aspirantes.get(j).darEdad();
+                    posMenor = j;
+                }
+            }
+            aspirantes.set(i, aspirantes.get(posMenor));
+            aspirantes.set(posMenor, aspirantes.get(i) );
+        }
+        // Falta por crear el el objeto aux en la clase aspirante.
+
         // TODO: Realizar el ejercicio correspondiente Ricardo
     }
 
