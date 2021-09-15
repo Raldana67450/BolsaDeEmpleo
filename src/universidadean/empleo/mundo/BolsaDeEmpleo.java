@@ -91,7 +91,7 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por edad
      */
     public void ordenarPorEdad() {
-        // TODO: Realizar el ejercicio correspondiente
+        // TODO: Realizar el ejercicio correspondiente Ricardo
     }
 
     /**
@@ -107,7 +107,7 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por años de experiencia
      */
     public void ordenarPorAniosDeExperiencia() {
-        // TODO: Realizar el ejercicio correspondiente
+        // TODO: Realizar el ejercicio correspondiente Sebastián
     }
 
     /**
@@ -226,11 +226,13 @@ public class BolsaDeEmpleo {
      */
     public int eliminarAspirantesPorExperiencia(int aniosExperiencia) {
         int eliminados = 0;
-
-        int cont = 0;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if(aspirantes.get(i).darAniosExperiencia()<=aniosExperiencia){
+                aspirantes.remove(i);
+                eliminados += 1;
+                i = -1;
+            }
+        }
         return eliminados;
     }
 
