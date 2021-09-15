@@ -196,9 +196,13 @@ public class BolsaDeEmpleo {
      */
     public int buscarAspiranteMayorExperiencia() {
         int posicion = -1;
-
-        // TODO: Realizar el ejercicio correspondiente
-
+        int experiencia = 0;
+        for (int i = 0; i < aspirantes.size(); i++) {
+            if (aspirantes.get(i).darAniosExperiencia()>=experiencia){
+                experiencia = aspirantes.get(i).darAniosExperiencia();
+                posicion = i;
+            }
+        }
         return posicion;
     }
 
