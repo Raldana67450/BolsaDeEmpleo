@@ -134,7 +134,7 @@ public class BolsaDeEmpleo {
                 aspirantes.set(j+1,aspirantes.get(j));
                 j = j - 1;
             }
-            arr[j + 1] = key;
+            //arr[j + 1] = key;
 
         }
         // TODO: Realizar el ejercicio correspondiente Sebastián
