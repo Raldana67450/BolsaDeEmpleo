@@ -83,6 +83,16 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por nombre (orden ascendente).
      */
     public void ordenarPorNombre() {
+        for (int i = 0; i < aspirantes.size(); ++i){
+            for (int j = 0; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(j).darNombre().compareTo(aspirantes.get(j+1).darNombre())) {
+                    String aux = aspirantes.get(j).darNombre();
+                    aspirantes.set (j,aspirantes.get(j+1));
+                    aspirantes.set (j+1, aux);
+
+                }
+            }
+        }
         // TODO: Realizar el ejercicio correspondiente
     }
 
@@ -105,7 +115,7 @@ public class BolsaDeEmpleo {
             aspirantes.set(i, aspirantes.get(posMenor));
             aspirantes.set(posMenor, aspirantes.get(i) );
         }
-        // Falta por crear el el objeto aux en la clase aspirante.
+        // Falta por crear el objeto aux en la clase aspirante.
 
         // TODO: Realizar el ejercicio correspondiente Ricardo
     }
@@ -115,6 +125,16 @@ public class BolsaDeEmpleo {
      * <b>post: </b>El conjunto de aspirantes esta ordenado por profesión
      */
     public void ordenarPorProfesion() {
+        for (int i = 0;  i < aspirantes.size(); ++i){
+            for (int j = 0; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(j) == aspirantes.get(i)) {
+                    int aux = aspirantes.get(j);
+                    aspirantes.set (j,aspirantes.get(j+1));
+                    aspirantes.set(j+1, aux);
+                }
+            }
+        }
+
         // TODO: Realizar el ejercicio correspondiente
     }
 
