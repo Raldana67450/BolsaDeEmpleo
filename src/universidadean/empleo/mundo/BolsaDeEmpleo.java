@@ -84,16 +84,14 @@ public class BolsaDeEmpleo {
      */
     public void ordenarPorNombre() {
         for (int i = 0; i < aspirantes.size(); ++i){
-            for (int j = 0; j < aspirantes.size()-1; ++j){
-                if (aspirantes.get(j).darNombre().compareTo(aspirantes.get(j+1).darNombre())) {
-                    String aux = aspirantes.get(j).darNombre();
-                    aspirantes.set (j,aspirantes.get(j+1));
-                    aspirantes.set (j+1, aux);
-
+            for (int j = i+1; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(i).darNombre().compareTo(aspirantes.get(j).darNombre())>0) {
+                    Aspirante aux = aspirantes.get(i);
+                    aspirantes.set (i,aspirantes.get(j));
+                    aspirantes.set (j, aux);
                 }
             }
         }
-        // TODO: Realizar el ejercicio correspondiente
     }
 
     /**
@@ -116,9 +114,6 @@ public class BolsaDeEmpleo {
             aspirantes.set(i, aspirantes.get(posMenor));
             aspirantes.set(posMenor, aux );
         }
-        // Falta por crear el objeto aux en la clase aspirante.
-
-        // TODO: Realizar el ejercicio correspondiente Ricardo
     }
 
     /**
@@ -127,16 +122,14 @@ public class BolsaDeEmpleo {
      */
     public void ordenarPorProfesion() {
         for (int i = 0;  i < aspirantes.size(); ++i){
-            for (int j = 0; j < aspirantes.size()-1; ++j){
-                if (aspirantes.get(j) == aspirantes.get(i)) {
-                    int aux = aspirantes.get(j);
-                    aspirantes.set (j,aspirantes.get(j+1));
-                    aspirantes.set(j+1, aux);
+            for (int j = i+1; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(i).darProfesion().compareTo(aspirantes.get(j).darProfesion())>0) {
+                    Aspirante aux = aspirantes.get(i);
+                    aspirantes.set (i,aspirantes.get(j));
+                    aspirantes.set (j, aux);
                 }
             }
         }
-
-        // TODO: Realizar el ejercicio correspondiente
     }
 
     /**
