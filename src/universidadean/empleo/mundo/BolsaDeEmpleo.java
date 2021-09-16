@@ -84,15 +84,16 @@ public class BolsaDeEmpleo {
      */
     public void ordenarPorNombre() {
         for (int i = 0; i < aspirantes.size(); ++i){
-            for (int j = i+1; j < aspirantes.size()-1; ++j){
-                if (aspirantes.get(i).darNombre().compareTo(aspirantes.get(j).darNombre())>0) {
-                    Aspirante aux = aspirantes.get(i);
-                    aspirantes.set (i,aspirantes.get(j));
-                    aspirantes.set (j, aux);
+            for (int j = 0; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(j).darNombre().compareTo(aspirantes.get(j+1).darNombre())) {
+                    String aux = aspirantes.get(j).darNombre();
+                    aspirantes.set (j,aspirantes.get(j+1));
+                    aspirantes.set (j+1, aux);
+
                 }
             }
         }
-        // TODO: Realizar el ejercicio correspondiente (no esta en interfaz)
+        // TODO: Realizar el ejercicio correspondiente
     }
 
     /**
@@ -100,6 +101,8 @@ public class BolsaDeEmpleo {
      * <b>post: </b>La lista de aspirantes está ordenada por edad
      */
     public void ordenarPorEdad() {
+
+
         for (int i = 0; i < aspirantes.size() -1; ++i ){
             int menor = Integer.MAX_VALUE;
             int posMenor = -1;
@@ -109,8 +112,9 @@ public class BolsaDeEmpleo {
                     posMenor = j;
                 }
             }
+            Aspirante aux = aspirantes.get(i);
             aspirantes.set(i, aspirantes.get(posMenor));
-            aspirantes.set(posMenor, aspirantes.get(i) );
+            aspirantes.set(posMenor, aux );
         }
         // Falta por crear el objeto aux en la clase aspirante.
 
@@ -122,12 +126,12 @@ public class BolsaDeEmpleo {
      * <b>post: </b>El conjunto de aspirantes esta ordenado por profesión
      */
     public void ordenarPorProfesion() {
-        for (int i = 0; i < aspirantes.size(); ++i){
-            for (int j = i+1; j < aspirantes.size()-1; ++j){
-                if (aspirantes.get(i).darProfesion().compareTo(aspirantes.get(j).darProfesion())>0) {
-                    Aspirante aux = aspirantes.get(i);
-                    aspirantes.set (i,aspirantes.get(j));
-                    aspirantes.set (j, aux);
+        for (int i = 0;  i < aspirantes.size(); ++i){
+            for (int j = 0; j < aspirantes.size()-1; ++j){
+                if (aspirantes.get(j) == aspirantes.get(i)) {
+                    int aux = aspirantes.get(j);
+                    aspirantes.set (j,aspirantes.get(j+1));
+                    aspirantes.set(j+1, aux);
                 }
             }
         }
@@ -198,7 +202,6 @@ public class BolsaDeEmpleo {
             }
         }
         return posicion;
-        // (no esta en interfaz)
     }
 
 
